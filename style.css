@@ -45,7 +45,7 @@ h3:hover{
 }
 .post-content{
     font: normal 300 1.2em/1.2em var(--font);
-    text-align: left;
+    text-align: justify;
     color: var(--txt-color);
 }
 .read-more{
@@ -84,12 +84,16 @@ h2{
 }
 .domain-name{
     color: #fff;
-    font: normal 600 3em/1em var(--font);
+    font: normal 600 3em/1.2em var(--font);
     text-decoration: underline;
 }
 .domain-description{
     color: var(--post-bg-color);
     font: normal 200 1.2em/1.2em var(--font);
+}
+.post-title{
+    font: normal 600 2.5em/3em var(--font);
+    text-align: center;
 }
 /* images */
 .logo-header{
@@ -111,6 +115,11 @@ h2{
 }
 .banner-img{
     width: 20em;
+}
+.banner-blog-page{
+    width: 100vw;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* nav-menu */
@@ -142,10 +151,33 @@ header{
     height: 100vh;
     background: var(--theme-blue-light);
 }
+.home-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5em;
+    gap: 4em;
+    justify-content: center;
+    align-items: center;
+}
 .txt-content{
     width: 40%;
     display: grid;
     gap: 1em;
+}
+.home-left-btn,
+.home-right-btn{
+    position: absolute;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2em;
+}
+.home-left-btn{
+    left: 1em;
+}
+.home-right-btn{
+    right: 1em;
 }
 
 /* post */
@@ -202,6 +234,47 @@ button{
     transition-duration: 300ms;
 }
 
+/* BLOG POST */
+.post-txt{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-between;
+    padding: 2em;
+}
+.ad{
+    border: 1px solid #333;
+    background-color: var(--post-bg-color);
+    padding: 1em;
+}
+.blog-page{
+    max-width: 40em;
+}
+.bottom-nav-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-btn{
+    border-radius: 0.2em;
+    background: var(--theme-blue);
+    padding: 0.5em 1em 0.5em 1em;
+}
+.nav-btn:hover{
+    background: var(--theme-blue-light);
+    transition-duration: 300ms;
+}
+.nav-btn a{
+    color: #fff;
+}
+.post-topic{
+    cursor: default;
+}
+.post-topic:hover{
+    box-shadow: none;
+    transform: translateX(4px) translateY(4px);
+    transition-duration: 350ms;
+}
 /* RESPONSIVE */
 
 
@@ -217,7 +290,7 @@ button{
         position: fixed;
         background-color: var(--theme-blue);
         right: 0;
-        top: 4em;
+        top: 2em;
         height: 40vh;
         width: 100vw;
         display: flex;
@@ -238,9 +311,6 @@ button{
     .menu-rotate{
         transition-duration: 500ms;
         transform: rotate(180deg);
-    }
-    #home{
-        height: fit-content;
     }
     #about{
         flex-direction: column;

@@ -1,33 +1,62 @@
 const menuJs = document.querySelector('.menu');
 const navJs = document.querySelector('nav');
+const linkJs = document.querySelectorAll('.nav-link');
+const mainJs = document.querySelector('main')
 const domainJs = document.querySelector('.domain-name');
 const descriptionJs = document.querySelector('.domain-description');
 const bannerJs = document.querySelector('.banner-img');
 
-let domainName = [
-    'App Development',
-    'UI/UX Design',
-    'Machine Learning'
-]
-
-let domainDescription = [
-    'Mobile app development has been steadily growing, in revenues and jobs created. In this domain and all others, we encourage all to keep practising and be their best selves.',
-    'In this domain, We provide designing team who with their apex of creativity immerse themselves into fantasy and fiction and pour out the elegance.',
-    'Mobile app development has been steadily growing, in revenues and jobs created. In this domain and all others, we encourage all to keep practising and be their best selves.'
-]
-
-let bannerImgs = [
-    './assets/app-dev-banner.svg',
-    './assets/ux-ui-banner.svg',
-    './assets/ml-banner.svg'
-]
-
+// navBar
 menuJs.addEventListener('click', () => {
     menuJs.classList.toggle('menu-rotate');
     if (menuJs.classList.contains('menu-rotate')) {
         menuJs.innerHTML = 'close';
     } else {
-        menuJs.innerHTML = 'keyboard_arrow_down';
+        menuJs.innerHTML = 'menu';
     }
     navJs.classList.toggle('nav-bar');
 });
+
+linkJs.forEach(link => link.addEventListener('click', () => {
+    navJs.classList.toggle('nav-bar');
+    menuJs.innerHTML = 'menu';
+}))
+mainJs.addEventListener('click', () => {
+    navJs.classList.add('nav-bar');
+    menuJs.innerHTML = 'menu';
+})
+
+// homeCarousel
+const domainName = [
+    'App Development',
+    'UI/UX Design',
+    'Machine Learning'
+]
+
+const domainDescription = [
+    'Mobile app development has been steadily growing, in revenues and jobs created. In this domain and all others, we encourage all to keep practising and be their best selves.',
+    'In this domain, We provide designing team who with their apex of creativity immerse themselves into fantasy and fiction and pour out the elegance.',
+    'Mobile app development has been steadily growing, in revenues and jobs created. In this domain and all others, we encourage all to keep practising and be their best selves.'
+]
+
+const bannerImgs = [
+    './assets/app-dev-banner.svg',
+    './assets/ux-ui-banner.svg',
+    './assets/ml-banner.svg'
+]
+let i = 0;
+
+homeChange = () => {
+    domainJs.innerHTML = domainName[i];
+    descriptionJs.innerHTML = domainDescription[i];
+    bannerJs.src = bannerImgs[i];
+}
+timerId  = () => {
+    setInterval(homeChange, 1000);
+    i++;
+    if(i === 3){
+        clearInterval(homeChange);
+        i = 0;
+    }
+}
+setInterval(timerId, 4000)
