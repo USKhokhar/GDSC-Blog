@@ -290,7 +290,7 @@ button{
         position: fixed;
         background-color: var(--theme-blue);
         right: 0;
-        top: 3.5em;
+        top: 4em;
         height: 40vh;
         width: 100vw;
         display: flex;
