@@ -82,6 +82,15 @@ h2{
     background: #1f57b1;
     transition-duration: 300ms;
 }
+.domain-name{
+    color: #fff;
+    font: normal 600 3em/1em var(--font);
+    text-decoration: underline;
+}
+.domain-description{
+    color: var(--post-bg-color);
+    font: normal 200 1.2em/1.2em var(--font);
+}
 /* images */
 .logo-header{
     height: 2.2em;
@@ -100,9 +109,12 @@ h2{
     transition-duration: 350ms;
     transform: scale(1.03);
 }
+.banner-img{
+    width: 20em;
+}
 
 /* nav-menu */
-.hamburger{
+.menu{
     display: none !important;
 }
 nav ul{
@@ -130,6 +142,11 @@ header{
     height: 100vh;
     background: var(--theme-blue-light);
 }
+.txt-content{
+    width: 40%;
+    display: grid;
+    gap: 1em;
+}
 
 /* post */
 #post{
@@ -139,6 +156,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 4em;
     padding: 5em;
 }
@@ -191,17 +209,38 @@ button{
     *{
         font-size: 14px;
     }
-    nav{
+    .nav-bar{
         display: none;
     }
-    .hamburger{
+    nav{
+        display: block;
+        position: fixed;
+        background-color: var(--theme-blue);
+        right: 0;
+        top: 4em;
+        height: 40vh;
+        width: 100vw;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    nav ul{
+        flex-direction: column;
+    }
+    .menu{
         display: block !important;
         color: #fff;
         position: absolute ;
         right: 1em;
+        cursor: pointer;
+    }
+    .menu-rotate{
+        transition-duration: 500ms;
+        transform: rotate(180deg);
     }
     #home{
-        height: 75vh;
+        height: fit-content;
     }
     #about{
         flex-direction: column;
@@ -210,5 +249,9 @@ button{
     }
     .foot-about{
         width: 80%;
+    }
+        
+    .txt-content{
+        width: 100%;
     }
 }
